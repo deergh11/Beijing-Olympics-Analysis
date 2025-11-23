@@ -1,0 +1,9 @@
+{
+	"name": "beijing-olympics-datafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d2c5b871-2d98-4f86-bf86-e3daca4987c6",
+		"tenantId": "f9effaf4-72b9-4867-8493-b0b1f182aef0"
+	}
+}
