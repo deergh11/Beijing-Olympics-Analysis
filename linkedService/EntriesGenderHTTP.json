@@ -1,0 +1,12 @@
+{
+	"name": "EntriesGenderHTTP",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://raw.githubusercontent.com/deergh11/Beijing-Olympics-Analysis/refs/heads/main/raw-data/Entries_By_Discipline.csv?token=GHSAT0AAAAAADOQFTDTZSRYRUZWLWKQ7TFS2JDTJ6Q",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

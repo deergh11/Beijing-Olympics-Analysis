@@ -1,0 +1,12 @@
+{
+	"name": "CoachesHTTP",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://raw.githubusercontent.com/deergh11/Beijing-Olympics-Analysis/refs/heads/main/raw-data/Coaches.csv?token=GHSAT0AAAAAADOQFTDSKJIDZZDVYGUKCMRW2JDTIOA",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"name": "AthleteHTTP",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://raw.githubusercontent.com/deergh11/Beijing-Olympics-Analysis/refs/heads/main/raw-data/Athletes.csv?token=GHSAT0AAAAAADOQFTDSCBFJNWJVBWH6QKGC2JDTGKA",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
