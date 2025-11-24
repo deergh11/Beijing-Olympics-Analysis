@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "beijing-olympics-sa"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"beijing-olympics-sa-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:beijing-olympics-sa.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"AthleteHTTP_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/deergh11/Beijing-Olympics-Analysis/refs/heads/main/raw-data/Athletes.csv?token=GHSAT0AAAAAADOQFTDSCBFJNWJVBWH6QKGC2JDTGKA"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://beijingolympicsdata.dfs.core.windows.net/"
+		},
+		"CoachesHTTP_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/deergh11/Beijing-Olympics-Analysis/refs/heads/main/raw-data/Coaches.csv?token=GHSAT0AAAAAADOQFTDSKJIDZZDVYGUKCMRW2JDTIOA"
+		},
+		"EntriesGenderHTTP_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/deergh11/Beijing-Olympics-Analysis/refs/heads/main/raw-data/Entries_By_Discipline.csv?token=GHSAT0AAAAAADOQFTDTZSRYRUZWLWKQ7TFS2JDTJ6Q"
+		},
+		"MedalsHTTP_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/deergh11/Beijing-Olympics-Analysis/refs/heads/main/raw-data/Medals_2022.csv?token=GHSAT0AAAAAADOQFTDT6VTJLIMWVNKALK7C2JDTLTQ"
+		},
+		"TeamsHTTP_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/deergh11/Beijing-Olympics-Analysis/refs/heads/main/raw-data/Teams.csv?token=GHSAT0AAAAAADOQFTDTE5V2GL56SHUWVP2I2JDTOEA"
+		},
+		"beijing-olympics-sa-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://beijingolympicsdata.dfs.core.windows.net"
+		}
+	}
+}
