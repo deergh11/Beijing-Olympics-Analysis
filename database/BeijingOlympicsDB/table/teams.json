@@ -1,7 +1,7 @@
 {
-	"name": "athletes",
+	"name": "teams",
 	"properties": {
-		"Name": "athletes",
+		"Name": "teams",
 		"EntityType": "TABLE",
 		"Namespace": {
 			"DatabaseName": "BeijingOlympicsDB"
@@ -51,6 +51,19 @@
 						}
 					},
 					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "Event",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8000,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
 				}
 			],
 			"Format": {
@@ -59,7 +72,7 @@
 				"FormatType": "csv",
 				"SerializeLib": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe",
 				"Properties": {
-					"path": "abfss://beijingolympicdata@beijingolympicsdata.dfs.core.windows.net/transformed data/athlete.csv/part-00000-tid-8513764334971456087-6e0b2469-3715-4632-bcd8-d1f5e4aedd1c-46-1-c000.csv",
+					"path": "abfss://beijingolympicdata@beijingolympicsdata.dfs.core.windows.net/transformed data/team.csv/part-00000-tid-2617471700692772184-05af99c8-9cfa-469a-a1c5-3f62fa3d48be-50-1-c000.csv",
 					"delimiter": ",",
 					"multiLine": "false",
 					"firstRowAsHeader": "true",
@@ -70,7 +83,7 @@
 			},
 			"Source": {
 				"Provider": "ADLS",
-				"Location": "abfss://beijingolympicdata@beijingolympicsdata.dfs.core.windows.net/transformed data/athlete.csv/part-00000-tid-8513764334971456087-6e0b2469-3715-4632-bcd8-d1f5e4aedd1c-46-1-c000.csv",
+				"Location": "abfss://beijingolympicdata@beijingolympicsdata.dfs.core.windows.net/transformed data/team.csv/part-00000-tid-2617471700692772184-05af99c8-9cfa-469a-a1c5-3f62fa3d48be-50-1-c000.csv",
 				"Properties": {
 					"LinkedServiceName": "beijing-olympics-sa-WorkspaceDefaultStorage",
 					"LocationSetToDatabaseDefault": false
@@ -78,7 +91,7 @@
 			},
 			"Properties": {
 				"textinputformat.record.delimiter": ",",
-				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"compression": "",
 				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
 			},
 			"Compressed": false,
