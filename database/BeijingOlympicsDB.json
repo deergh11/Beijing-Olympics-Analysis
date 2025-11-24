@@ -1,0 +1,22 @@
+{
+	"name": "BeijingOlympicsDB",
+	"properties": {
+		"Name": "BeijingOlympicsDB",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://beijingolympicdata@beijingolympicsdata.dfs.core.windows.net/BeijingOlympicsDB",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "beijing-olympics-sa-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
