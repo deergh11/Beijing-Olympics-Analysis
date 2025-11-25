@@ -1,0 +1,17 @@
+{
+	"name": "SQL Views",
+	"properties": {
+		"content": {
+			"query": "CREATE VIEW dbo.v_MedalShareByCountry\nAS\nSELECT\n    Country,\n    Total,\n    ROUND(Total * 100.0 / SUM(Total) OVER (), 2) AS PercentOfAllMedals,\n    Gold,\n    ROUND(Gold * 100.0 / SUM(Gold) OVER (), 2)    AS PercentOfAllGolds\nFROM [BeijingOlympicsDB].[dbo].[medals];\n\n\nCREATE VIEW dbo.v_GenderByDiscipline\nAS\nSELECT\n    Discipline,\n    Female,\n    Male,\n    Total,\n    ROUND(Female * 100.0 / NULLIF(Total, 0), 1) AS FemalePercent\nFROM [BeijingOlympicsDB].[dbo].[genders];\n\n\nCREATE VIEW dbo.v_GenderOverall\nAS\nSELECT\n    SUM(Female) AS TotalFemale,\n    SUM(Male)   AS TotalMale,\n    SUM(Total)  AS TotalParticipants,\n    ROUND(SUM(Female) * 100.0 / SUM(Total), 2) AS FemalePercent,\n    ROUND(SUM(Male)   * 100.0 / SUM(Total), 2) AS MalePercent\nFROM [BeijingOlympicsDB].[dbo].[genders];\n\n\nCREATE VIEW dbo.v_AthletesByCountry\nAS\nSELECT\n    Country,\n    COUNT(*) AS AthleteCount\nFROM [BeijingOlympicsDB].[dbo].[athletes]\nGROUP BY Country;\n\n\nCREATE VIEW dbo.v_CoachesByCountry\nAS\nSELECT\n    Country,\n    COUNT(*) AS CoachCount\nFROM [BeijingOlympicsDB].[dbo].[coaches]\nGROUP BY Country;\n\n\nCREATE VIEW dbo.v_AthleteCoachRatio\nAS\nWITH A AS (\n    SELECT Country, COUNT(*) AS Athletes\n    FROM [BeijingOlympicsDB].[dbo].[athletes]\n    GROUP BY Country\n),\nC AS (\n    SELECT Country, COUNT(*) AS Coaches\n    FROM [BeijingOlympicsDB].[dbo].[coaches]\n    GROUP BY Country\n)\nSELECT\n    A.Country,\n    A.Athletes,\n    C.Coaches,\n    ROUND(A.Athletes * 1.0 / NULLIF(C.Coaches, 0), 1) AS AthletesPerCoach\nFROM A\nLEFT JOIN C ON A.Country = C.Country;\n\n\nCREATE VIEW dbo.v_MedalsPerAthlete\nAS\nWITH AthleteCounts AS (\n    SELECT Country, COUNT(*) AS AthleteCount\n    FROM [BeijingOlympicsDB].[dbo].[athletes]\n    GROUP BY Country\n)\nSELECT\n    m.Country,\n    m.Gold,\n    m.Silver,\n    m.Bronze,\n    m.Total        AS TotalMedals,\n    a.AthleteCount,\n    ROUND(m.Total * 1.0 / NULLIF(a.AthleteCount, 0), 3) AS MedalsPerAthlete\nFROM [BeijingOlympicsDB].[dbo].[medals] m\nJOIN AthleteCounts a\n    ON m.Country = a.Country;\n\n\nCREATE VIEW dbo.v_TopCountriesByDiscipline\nAS\nWITH t AS (\n    SELECT \n        Discipline,\n        Country,\n        COUNT(*) AS AthleteCount,\n        ROW_NUMBER() OVER (\n            PARTITION BY Discipline ORDER BY COUNT(*) DESC\n        ) AS rn\n    FROM [BeijingOlympicsDB].[dbo].[athletes]\n    GROUP BY Discipline, Country\n)\nSELECT\n    Discipline,\n    Country,\n    AthleteCount,\n    rn\nFROM t;\n\n\nCREATE VIEW dbo.v_TeamsByDiscipline\nAS\nSELECT\n    Discipline,\n    COUNT(*) AS TeamCount\nFROM [BeijingOlympicsDB].[dbo].[teams]\nGROUP BY Discipline;\n\n\n\nCREATE VIEW dbo.v_TeamsByCountry\nAS\nSELECT\n    Country,\n    COUNT(*) AS TeamCount\nFROM [BeijingOlympicsDB].[dbo].[teams]\nGROUP BY Country;\n\n\nCREATE VIEW dbo.v_TeamsByDisciplineCountry\nAS\nSELECT\n    Discipline,\n    Country,\n    COUNT(*) AS TeamCount\nFROM [BeijingOlympicsDB].[dbo].[teams]\nGROUP BY Discipline, Country;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "BeijingOlympicsDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
