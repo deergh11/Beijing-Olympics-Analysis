@@ -1,0 +1,17 @@
+{
+	"name": "Team Events and Discipline Analysis",
+	"properties": {
+		"content": {
+			"query": "-- Shows which disciplines have the deepest team participation.\nSELECT\n    Discipline,\n    COUNT(*) AS TeamCount\nFROM teams\nGROUP BY Discipline\nORDER BY TeamCount DESC;\n\n-- Shows team depth by nation.\n-- Strong team depth predicts strong relay and group performance.\nSELECT\n    Country,\n    COUNT(*) AS TeamCount\nFROM teams\nGROUP BY Country\nORDER BY TeamCount DESC;\n\n-- Which countries compete heavily in which team sports?\n-- This is valuable for nations aiming to strengthen team events in 2026.\nSELECT\n    Discipline,\n    Country,\n    COUNT(*) AS TeamCount\nFROM teams\nGROUP BY Discipline, Country\nORDER BY Discipline, TeamCount DESC;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "BeijingOlympicsDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
