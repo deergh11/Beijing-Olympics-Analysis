@@ -1,0 +1,17 @@
+{
+	"name": "Athlete and Coach Analysis",
+	"properties": {
+		"content": {
+			"query": "-- Shows delegation size for each nation.\n-- Larger delegations may indicate strong sports infrastructure.\nSELECT\n    Country,\n    COUNT(*) AS AthleteCount\nFROM athletes\nGROUP BY Country\nORDER BY AthleteCount DESC;\n\n-- Coaching depth is a key predictor of future performance.\nSELECT\n    Country,\n    COUNT(*) AS CoachCount\nFROM coaches\nGROUP BY Country\nORDER BY CoachCount DESC;\n\n-- Evaluates whether countries are coaching athletes effectively.\n-- High ratio = too few coaches supporting too many athletes.\nWITH A AS (\n    SELECT Country, COUNT(*) AS Athletes FROM athletes GROUP BY Country\n),\nC AS (\n    SELECT Country, COUNT(*) AS Coaches FROM coaches GROUP BY Country\n)\nSELECT\n    A.Country,\n    A.Athletes,\n    C.Coaches,\n    ROUND(A.Athletes * 1.0 / NULLIF(C.Coaches, 0), 1) AS AthletesPerCoach\nFROM A\nLEFT JOIN C ON A.Country = C.Country\nORDER BY AthletesPerCoach DESC;\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "BeijingOlympicsDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
