@@ -1,0 +1,17 @@
+{
+	"name": "Gender Participation Analysis",
+	"properties": {
+		"content": {
+			"query": "-- Shows total male/female participation by sport.\n-- Useful for identifying gender-balanced vs. gender-skewed sports.\nSELECT\n    Discipline,\n    Female,\n    Male,\n    Total\nFROM genders\nORDER BY Total DESC;\n\n-- Determines sports with the strongest women's presence.\n-- Helps predict which sports may expand women's events in 2026.\nSELECT\n    Discipline,\n    Female,\n    Male,\n    Total,\n    ROUND(Female * 100.0 / NULLIF(Total, 0), 1) AS FemalePercent\nFROM genders\nORDER BY FemalePercent DESC;\n\n-- Provides global gender parity insights for Beijing 2022.\n-- The IOC tracks this to measure progress toward parity.\nSELECT\n    SUM(Female) AS TotalFemale,\n    SUM(Male)   AS TotalMale,\n    SUM(Total)  AS TotalParticipants,\n    ROUND(SUM(Female) * 100.0 / SUM(Total), 2) AS FemalePercent,\n    ROUND(SUM(Male)   * 100.0 / SUM(Total), 2) AS MalePercent\nFROM genders;\n\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "BeijingOlympicsDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
