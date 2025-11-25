@@ -1,0 +1,17 @@
+{
+	"name": "Deep Insight Analysis",
+	"properties": {
+		"content": {
+			"query": "-- Shows which countries convert participants into podium finishes most efficiently.\n-- Underperformers should reevaluate training or athlete allocations before 2026.\nWITH AthleteCounts AS (\n    SELECT Country, COUNT(*) AS AthleteCount\n    FROM athletes\n    GROUP BY Country\n)\nSELECT\n    m.Country,\n    m.Gold,\n    m.Silver,\n    m.Bronze,\n    m.Total        AS TotalMedals,\n    a.AthleteCount,\n    ROUND(m.Total * 1.0 / a.AthleteCount, 3) AS MedalsPerAthlete\nFROM medals m\nJOIN AthleteCounts a\n    ON m.Country = a.Country\nORDER BY MedalsPerAthlete DESC;\n\n-- Compares delegation size to medal output.\n-- Useful for identifying overperformers vs. underperformers.\nWITH AthleteCounts AS (\n    SELECT Country, COUNT(*) AS AthleteCount\n    FROM athletes\n    GROUP BY Country\n)\nSELECT\n    a.Country,\n    a.AthleteCount,\n    m.Total AS TotalMedals\nFROM AthleteCounts a\nJOIN medals m\n    ON a.Country = m.Country\nORDER BY a.AthleteCount DESC;\n\n-- Reveals which nations dominate specific disciplines.\n-- Helps countries identify their strengths going into 2026.\nWITH t AS (\n    SELECT \n        Discipline,\n        Country,\n        COUNT(*) AS AthleteCount,\n        ROW_NUMBER() OVER (\n            PARTITION BY Discipline ORDER BY COUNT(*) DESC\n        ) rn\n    FROM athletes\n    GROUP BY Discipline, Country\n)\nSELECT Discipline, Country, AthleteCount\nFROM t\nWHERE rn <= 3\nORDER BY Discipline, AthleteCount DESC;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "BeijingOlympicsDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
