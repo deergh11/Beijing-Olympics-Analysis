@@ -1,0 +1,17 @@
+{
+	"name": "Medal Dominance Analysis",
+	"properties": {
+		"content": {
+			"query": "-- Basic medal table ordered by official Olympic ranking\nSELECT\n    Country,\n    Rank,\n    Gold,\n    Silver,\n    Bronze,\n    Total,\n    Rank_by_Total\nFROM medals\nORDER BY Rank;\n\n-- Rank countries by performance: total medals first, then gold & silver as tie breakers\nSELECT\n    Country,\n    Gold,\n    Silver,\n    Bronze,\n    Total\nFROM medals\nORDER BY Total DESC, Gold DESC, Silver DESC;\n\n-- Compute qualitative dominance: golds are worth more than bronzes.\n-- This shows which nations TRULY dominated, beyond raw totals.\nSELECT \n    Country,\n    Gold,\n    Silver,\n    Bronze,\n    Total,\n    (Gold * 3 + Silver * 2 + Bronze * 1) AS DominanceScore\nFROM medals\nORDER BY DominanceScore DESC;\n\n-- Shows each nation's share of ALL medals and ALL gold medals.\n-- Useful for gauging international competitive balance before 2026.\nSELECT\n    Country,\n    Total,\n    ROUND(Total * 100.0 / SUM(Total) OVER (), 2) AS PercentOfAllMedals,\n    Gold,\n    ROUND(Gold * 100.0 / SUM(Gold) OVER (), 2)     AS PercentOfAllGolds\nFROM medals\nORDER BY PercentOfAllGolds DESC;\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "BeijingOlympicsDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
