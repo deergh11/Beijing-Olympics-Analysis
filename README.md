@@ -1,17 +1,22 @@
 # 🥇 Beijing 2022 Winter Olympics — End-to-End Analytics Pipeline  
-### *Azure Synapse Analytics · Spark · SQL · Power BI · Data Engineering + BI Project*
+### *Azure Data Factory · Azure Databricks · Azure Synapse Analytics · Azure Blob Storage · Power BI*
 
 ---
 
 ## 📌 Project Overview
 
-This project is a complete **end-to-end data engineering and business intelligence pipeline** built using:
+This project is a complete **end-to-end cloud data engineering and business intelligence pipeline**, built using the following Azure services:
 
-- **Azure Synapse Analytics** (Serverless SQL, Spark Pool, Lake Database)  
-- **Azure Data Lake Storage Gen2**  
-- **PySpark (Databricks-style transformations)**  
-- **SQL Views for BI Consumption**  
-- **Power BI Dashboard**
+- **Azure Blob Storage (Data Lake Storage Gen2)** — raw and transformed data storage  
+- **Azure Data Factory (ADF)** — pipeline orchestration and ETL movement  
+- **Azure Databricks** — PySpark-based data cleaning and transformation  
+- **Azure Synapse Analytics (Serverless SQL)** — analytics modeling layer and SQL views  
+- **Power BI Desktop** — final reporting and dashboard visualizations  
+
+The solution processes real Olympic data from the **Beijing 2022 Winter Games**, transforming raw CSVs into analytical insights and interactive dashboards.  
+It follows modern data engineering best practices by separating raw, transformed, and gold/semantic layers, and by using scalable compute for transformation and serverless SQL for BI.
+
+---
 
 The goal is to take raw publicly available data from the **Beijing 2022 Winter Olympics**, clean it, model it, create analytical SQL views, and develop a **multi-page Power BI report** that tells meaningful stories about:
 
@@ -143,25 +148,27 @@ The project includes a **4-page Power BI dashboard**:
 ## 🧩 Skills Demonstrated
 
 ### **Data Engineering**
-- PySpark transformations  
-- ADLS Gen2 ingestion  
-- Schema design  
-- Lake Database modeling  
-- Serverless SQL view creation  
+- Designed cloud-based ETL pipelines using **Azure Data Factory**
+- Ingested and organized datasets in **Azure Blob Storage (ADLS Gen2)**
+- Performed large-scale cleaning, normalization, and transformation using **PySpark in Azure Databricks**
+- Applied schema validation, column standardization, and data quality checks
+- Built **analytics-ready SQL views** in Synapse for BI consumption
 
 ### **Business Intelligence**
-- Analytical SQL (CTEs, window functions, ratios)  
-- KPI development  
-- Multi-page dashboard design  
-- Storytelling with data  
+- Wrote advanced SQL using CTEs, joins, ranking functions, and window functions
+- Built derived metrics (dominance scores, efficiency ratios, gender parity KPIs)
+- Designed a multi-page **Power BI executive dashboard**
+- Translated raw data into clear stories and actionable insights
 
 ### **Cloud Technologies**
-- Azure Synapse Analytics  
-- Spark Pools  
-- Serverless SQL Pools  
-- Power BI Desktop  
+- **Azure Blob Storage (ADLS Gen2)** for raw & transformed data layers  
+- **Azure Data Factory** for orchestration and data movement  
+- **Azure Databricks** for PySpark transformations  
+- **Azure Synapse (Serverless SQL)** for modeling and consumption views  
+- **Power BI Desktop** for visualization and reporting  
 
 ---
+
 
 ## 📈 Key Insights
 
@@ -194,10 +201,9 @@ This project demonstrates a complete **analytics engineering** workflow:
 - Raw ingestion  
 - Cloud-based transformation  
 - SQL semantic modeling  
-- Enterprise-grade BI visualization  
+- Enterprise-grade BI visualization
 
-It represents a comprehensive, real-world, cloud-driven data solution.
-
+This was a fun project to work on ahead of the 2026 Milan Winter Olympics.
 
 
 
