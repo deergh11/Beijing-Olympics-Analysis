@@ -1,5 +1,5 @@
-# 🥇 Beijing 2022 Winter Olympics — End-to-End Analytics Pipeline  
-### *Azure Data Factory · Azure Databricks · Azure Synapse Analytics · Azure Blob Storage · Power BI*
+# 🥇 Beijing 2022 Winter Olympics — End-to-End Azure Analytics Pipeline  
+### *Azure Data Factory · Azure Databricks · Azure Synapse · ADLS Gen2 · Power BI*
 
 ---
 
