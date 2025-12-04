@@ -48,6 +48,9 @@ Datasets were cleaned and standardized using PySpark and loaded into Synapse.
 
 ## 🔄 Data Transformations (Spark)
 
+<img width="1863" height="893" alt="image" src="https://github.com/user-attachments/assets/27109c13-91c5-48f2-b50a-cc162ba74cb6" />
+
+
 Key operations performed:
 
 - Standardized country names (e.g., *People’s Republic of China* → *China*)
@@ -60,6 +63,9 @@ Key operations performed:
 ---
 
 ## 🧠 Analytics Layer (SQL Views)
+
+<img width="1329" height="850" alt="image" src="https://github.com/user-attachments/assets/7f0a4a6a-2378-424f-b5bd-a6f42bbdde8f" />
+
 
 A dedicated SQL database (`OlympicsViewsDB`) was created to expose clean analytical views to Power BI.
 
