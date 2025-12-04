@@ -62,7 +62,7 @@ Key operations performed:
 
 ---
 
-## 🧠 Analytics Layer (SQL Views)
+## 🧠 Azure Synapse Analytics Layer (SQL Views)
 
 <img width="1329" height="850" alt="image" src="https://github.com/user-attachments/assets/7f0a4a6a-2378-424f-b5bd-a6f42bbdde8f" />
 
