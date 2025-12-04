@@ -113,7 +113,10 @@ The project includes a **4-page Power BI dashboard**:
 - Delegation size  
 - Medals-per-athlete efficiency scatterplot  
 - Coaching ratio (athletes per coach)  
-- Coaches by country  
+- Coaches by country
+
+<img width="1338" height="751" alt="image" src="https://github.com/user-attachments/assets/08280456-5dfb-4544-82a4-1474db16b9f0" />
+
 
 **Questions answered:**  
 - Who overperformed with fewer athletes?  
@@ -126,7 +129,10 @@ The project includes a **4-page Power BI dashboard**:
 - Gender KPI cards  
 - Female participation % by discipline  
 - Male vs female counts per discipline  
-- Overall gender split  
+- Overall gender split
+
+<img width="1334" height="744" alt="image" src="https://github.com/user-attachments/assets/4da2332f-dfae-4cfb-b32e-bf34683fc6de" />
+
 
 **Questions answered:**  
 - Which sports approach gender parity?  
@@ -139,7 +145,10 @@ The project includes a **4-page Power BI dashboard**:
 - Team count by discipline  
 - Team count by country  
 - Heatmap (discipline × country)  
-- Top 3 countries per discipline  
+- Top 3 countries per discipline
+
+<img width="1338" height="751" alt="image" src="https://github.com/user-attachments/assets/8b76f79a-6221-459a-82c1-a0a5b3cd3281" />
+
 
 **Questions answered:**  
 - Which countries specialize in which sports?  
@@ -182,17 +191,6 @@ The project includes a **4-page Power BI dashboard**:
 - Countries like Norway dominate gold-heavy sports due to specialization
 
 A full insight write-up is included in `documentation/insights_summary.md`.
-
----
-
-## 🚀 How to Reproduce
-
-1. Upload raw datasets to **Azure Data Lake Gen2**
-2. Run PySpark transformations in Synapse
-3. Create SQL views with `sql/create_views.sql`
-4. Connect Power BI to:
-5. Load all analytic views  
-6. Open **BeijingOlympicsDashboard.pbix** to explore the final report
 
 ---
 
