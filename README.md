@@ -196,8 +196,6 @@ The project includes a **4-page Power BI dashboard**:
 - Team sports participation shows clear national specialization  
 - Countries like Norway dominate gold-heavy sports due to specialization
 
-A full insight write-up is included in `documentation/insights_summary.md`.
-
 ---
 
 ## ⭐ Final Notes
