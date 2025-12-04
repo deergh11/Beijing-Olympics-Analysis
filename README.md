@@ -100,6 +100,8 @@ The project includes a **4-page Power BI dashboard**:
 - Gold-only ranking  
 - Weighted dominance scoring  
 
+<img width="1340" height="753" alt="image" src="https://github.com/user-attachments/assets/a341160d-4093-4b9a-aa90-800acb9f9f80" />
+
 **Questions answered:**  
 - Who dominated Beijing 2022?  
 - How does total vs. gold performance compare?
